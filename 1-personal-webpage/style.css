@@ -80,3 +80,6 @@ header,footer {
   header a h3{
     margin: 15px;
   }
+  iframe {
+    width: 280px;
+  }
