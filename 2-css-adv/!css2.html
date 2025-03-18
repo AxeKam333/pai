@@ -10,6 +10,11 @@
         html,body,p {
             margin: 0px;
             padding: 0px;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
         }
         * {
             /* box-sizing: border-box; */
@@ -77,44 +82,89 @@
         }
         article p {
             text-align:justify;
+            padding: 15px;
+        }
+        footer {
+            height: 100px;
+            background-color: lightgray;
+            border-top: 2px solid black;
+            margin-top: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        footer p:nth-child(2) {
+            font-weight: bold;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        @media all and (max-width: 900px) {
+            main {
+                flex-wrap: wrap;
+            }
+            h1,nav {
+                display: none;
+            }
+            .burger {
+                width: 35px;
+                height: 40px;
+                padding: 10px;
+                background-color: lightgray;
+                border: 2px solid black;
+                border-radius: 10%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+            .burger div {
+                border: 1px solid black;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="lorem.jpg" alt="RS">
-        </div>
-        <h1>Responsywna strona</h1>
-        <nav>
-            <a href="">Lorem</a>
-            <a href="">Ipsum</a>
-            <a href="">Dolor</a>
-            <a href="">Sit</a>
-            <a href="">Amet</a>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <h2>Lorem</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti nisi vel ratione nam tempora. Illum
-                corporis nobis vero, facere dicta praesentium eaque sunt aliquam nisi, optio maxime sapiente cupiditate
-                quis.</p>
-        </article>
-        <article>
-            <h2>Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquam vel sunt officiis enim
-                suscipit officia velit deserunt, totam aut iste ad nulla architecto animi hic a reiciendis, consequatur
-                dignissimos.</p>
-        </article>
-        <article>
-            <h2>Dolor</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, atque tempore repellendus suscipit sunt ea
-                voluptatem blanditiis numquam nemo unde aliquam, dolor voluptas consequuntur? Quos quas veniam
-                cupiditate voluptas distinctio?</p>
-        </article>
-    </main>
+    <div class="content">
+        <header>
+            <div class="logo">
+                <img src="lorem.jpg" alt="RS">
+            </div>
+            <h1>Responsywna strona</h1>
+            <nav>
+                <a href="">Lorem</a>
+                <a href="">Ipsum</a>
+                <a href="">Dolor</a>
+                <a href="">Sit</a>
+                <a href="">Amet</a>
+            </nav>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+        <main>
+            <article>
+                <h2>Lorem</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti nisi vel ratione nam tempora. Illum
+                    corporis nobis vero, facere dicta praesentium eaque sunt aliquam nisi, optio maxime sapiente cupiditate
+                    quis.</p>
+            </article>
+            <article>
+                <h2>Ipsum</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aliquam vel sunt officiis enim
+                    suscipit officia velit deserunt, totam aut iste ad nulla architecto animi hic a reiciendis, consequatur
+                    dignissimos.</p>
+            </article>
+            <article>
+                <h2>Dolor</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, atque tempore repellendus suscipit sunt ea
+                    voluptatem blanditiis numquam nemo unde aliquam, dolor voluptas consequuntur? Quos quas veniam
+                    cupiditate voluptas distinctio?</p>
+            </article>
+        </main>
+    </div>
     <footer>
         <p>strona przygotowana przez:</p>
         <p>Aleksander Kaminski</p>
