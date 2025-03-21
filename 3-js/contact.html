@@ -22,16 +22,16 @@
                     <h1>Aleksander Kamiński</h1>
                 </div>
                 <h2>Dołącz do nas!</h2>
-                <div class="errors"></div>
-                <form onsubmit=onsubmit() enctype="text/plain">
+                <div id="errors" class="none"></div>
+                <form id="myForm">
                     <div>
                         <label for="imie">Imię i nazwisko:</label><br>
-                        <input type="text" id="imie" name="imie" required onblur="validate('imie')" onfocus="editing('imie')">
+                        <input type="text" id="imie" name="imie" onblur="validate('imie')" onfocus="editing('imie')">
                         <span class="imie"> *</span>
                     </div>
                     <div>
                         <label for="email">Adres e-mail:</label><br>
-                        <input type="email" id="email" name="email" required onblur="validate('email')" onfocus="editing('email')">
+                        <input type="email" id="email" name="email" onblur="validate('email')" onfocus="editing('email')">
                         <span class="email"> *</span>
                     </div>
                     <div>
@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <label for="opis">Opis:</label><br>
-                        <textarea id="opis" name="opis" rows="5" cols="30" required onblur="validate('opis')" onfocus="editing('opis')"></textarea>
+                        <textarea id="opis" name="opis" rows="5" cols="30" onblur="validate('opis')" onfocus="editing('opis')"></textarea>
                         <span class="opis"> *</span>
                     </div>
                     
@@ -60,6 +60,7 @@
                         <input type="submit" value="Zarejestruj się!">
                     </div>
                 </form>
+                <div id="request" class="none"></div>
             </div>
         </div>
         <div class="center">

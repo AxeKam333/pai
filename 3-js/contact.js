@@ -1,13 +1,37 @@
-function onsubmit () {
-    //przegląda wszystkie elementy i ew ustawia na czerwono które trzeba
-    //dodaje div.danger z opisem błędów .class errors
-    const x = document.forms["frm1"];
+let myform = document.getElementById("myForm");
+myform.addEventListener("submit", function(event){
+    event.preventDefault();
+    console.log("Form submitted!",event);
+
     let text = "";
-    for (let i = 0; i < x.length; i++) {
-    text += x.elements[i].value + "<br>";
+    let elements = event.target.elements;
+    let errors = [];
+
+    for (let i = 0; i < elements.length; i++) {
+        text += elements[i].type=="submit"
+        ||elements[i].type=="password" 
+        ? "" : elements[i].value + "<br>";
+
+        if (elements[i].name!="" && !validate(elements[i].name)){
+            errors.push(elements[i].name)
+        }
     }
-    document.getElementById("demo").innerHTML = text; 
-}
+    let errout = document.getElementById("errors"); 
+    let reqout = document.getElementById("request");
+    if (errors.length>0){
+        console.log("Errors: ",errors);
+        errout.innerHTML = errors; 
+        reqout.classList.add("none");
+        errout.classList.add("danger");
+        errout.classList.remove("none");
+    }
+    else {
+        reqout.innerHTML = text; 
+        reqout.classList.remove("none");
+        errout.classList.remove("danger");
+        errout.classList.add("none");
+    }
+})
 function validate (input_name) {
     var input = document.getElementById(input_name);
     var span = document.querySelector("span."+input_name);
@@ -24,17 +48,19 @@ function validate (input_name) {
         regex = RegExp("^.+$");
     }
     else if (input_name == "password"||input_name == "r-password") {
-        regex = RegExp("(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}");
+        regex = RegExp("(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9/{/}/(/);:\"'!@#$%^&*]{6,16}");
     }
     else if (input_name == "opis") {
-        regex = RegExp("[.]{0,100}");
+        regex = RegExp("^(.){0,100}$");
     }
 
-    // console.log(value, value.match(regex));
+    console.log(value, value.match(regex));
     if (!value.match(regex)) {
         input.classList.add("danger");
         span.classList.add("danger");
+        return false;
     }
+    return true;
 }
 function editing (elem) {
     var input = document.getElementById(elem);

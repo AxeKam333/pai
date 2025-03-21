@@ -4,10 +4,16 @@ span {
 }
 span.danger {
   display: inline;
+  border: 0px solid red;
 }
 input.danger {
   border: 3px solid red;
   border-radius: 5px;
+}
+div.danger {
+  border: 3px solid red;
+  border-radius: 5px;
+  background-color: lightcoral;
 }
 body {
   margin:0px;
@@ -121,4 +127,12 @@ article {
 /* SMASH - użycie gradientu */
 #repos h3 {
   background-image: linear-gradient(to right, #d9f6ff, #fff);
+}
+
+#request,#errors {
+  margin: 20px;
+}
+
+.none {
+  display: none;
 }
