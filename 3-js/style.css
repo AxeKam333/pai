@@ -136,3 +136,28 @@ article {
 .none {
   display: none;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 25px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td:last-child {
+  background-color: red;
+}
+tr:last-child {
+  background-color: green;
+}
+tr:last-child td:last-child {
+  display: none;
+}

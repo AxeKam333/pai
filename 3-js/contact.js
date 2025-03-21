@@ -68,3 +68,18 @@ function editing (elem) {
     var span = document.querySelector("span."+elem);
     span.classList.remove("danger");
 }
+
+var table = document.getElementById("table");
+if (table != null) {
+    for (var i = 0; i < table.rows.length; i++) {
+        for (var j = 0; j < table.rows[i].cells.length; j++)
+        table.rows[i].cells[j].onclick = function () {
+            handleClick(this);
+            console.log(this);
+        };
+    }
+}
+
+function handleClick(tableCell) {
+    alert(tableCell.innerHTML);
+}
