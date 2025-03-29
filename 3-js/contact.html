@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksander Kamiński</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="contact.js" defer></script>
+</head>
+<body>
+    <div class="list">
+        <header>
+            <a href=""><h3>Home</h3></a>
+            <a href=""><h3>Coding</h3></a>
+            <a href=""><h3>Music</h3></a>
+            <a href="contact.html"><h3>Contact</h3></a>
+        </header>
+        <div class="center">
+            <div class="content list">
+                <div class="avatar">
+                    <img alt="Zdjecie na tle Tatr" src="../1-personal-webpage/tatry.jpg" >
+                    <h1>Aleksander Kamiński</h1>
+                </div>
+                <h2>Dołącz do nas!</h2>
+                <div id="errors" class="none"></div>
+                <div class="row">
+                    <form id="myForm">
+                        <div>
+                            <label for="imie">Imię i nazwisko:</label><br>
+                            <input type="text" id="imie" name="imie" onblur="validate('imie')" onfocus="editing('imie')">
+                            <span class="imie"> *</span>
+                        </div>
+                        <div>
+                            <label for="email">Adres e-mail:</label><br>
+                            <input type="email" id="email" name="email" onblur="validate('email')" onfocus="editing('email')">
+                            <span class="email"> *</span>
+                        </div>
+                        <div>
+                            <label for="urodziny">Data urodzenia:</label><br>
+                            <input type="date" name="urodziny" id="urodziny" onblur="validate('urodziny')" onfocus="editing('urodziny')">
+                            <span class="urodziny"> *</span>
+                        </div>
+                        <div>
+                            <label for="password">Password:</label><br>
+                            <input type="password" name="password" id="password" onblur="validate('password')" onfocus="editing('password')">
+                            <span class="password"> *</span>
+                        </div>
+                        <div>
+                            <label for="r-password">Repeat password:</label><br>
+                            <input type="password" name="r-password" id="r-password" onblur="validate('r-password')" onfocus="editing('r-password')">
+                            <span class="r-password"> *</span>
+                        </div>
+                        <div>
+                            <label for="opis">Opis:</label><br>
+                            <textarea id="opis" name="opis" rows="5" cols="30" onblur="validate('opis')" onfocus="editing('opis')"></textarea>
+                            <span class="opis"> *</span>
+                        </div>
+                        
+                        <div>
+                            <br>
+                            <input type="submit" value="Zarejestruj się!">
+                        </div>
+                        <div id="request" class="none"></div>
+                    </form>
+                    <table id="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Delete/save row</th>
+                        </tr>
+                        <tr class="even">
+                            <td>Baby</td>
+                            <td>baby@example.com</td>
+                            <td>del</td>
+                        </tr>
+                        <tr>
+                            <td>Debora</td>
+                            <td>debora@example.com</td>
+                            <td>del</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Doc</td>
+                            <td>doc@example.com</td>
+                            <td>del</td>
+                        </tr>
+                        <tr>
+                            <td>Buddy</td>
+                            <td>buddy@example.com</td>
+                            <td>del</td>
+                        </tr>
+                        <tr>
+                            <td>add</td>
+                            <td>add</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer>
+        <a href=""><h3>Home</h3></a>
+        <a href=""><h3>Coding</h3></a>
+        <a href=""><h3>Music</h3></a>
+        <a href="contact.html"><h3>Contact</h3></a>
+        </footer>
+    </div>
+</body>
+</html>

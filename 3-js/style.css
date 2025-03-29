@@ -1,0 +1,174 @@
+span {
+  color:red;
+  display: none;
+}
+span.danger {
+  display: inline;
+  border: 0px solid red;
+}
+input.danger {
+  border: 3px solid red;
+  border-radius: 5px;
+}
+div.danger {
+  border: 3px solid red;
+  border-radius: 5px;
+  background-color: lightcoral;
+}
+body {
+  margin:0px;
+}
+/* SMASH - flex box */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  height: 100px;
+  background-color: lightblue;
+}
+footer{
+  background-color: lightblue;
+  padding-left: 10%;
+  padding-right: 10%;
+/* SMASH - fixed position */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+footer > a{
+  text-align: center;
+  margin: 15px 5px;
+  display: inline-block;
+}
+.footer{
+  background-color: lightblue;
+  padding-bottom: 100px;
+  padding-left: 10%;
+  padding-top:30px;
+}
+.content {
+  width: 90%;
+  min-height: 400px;
+  padding:110px 0px;
+}
+@media only screen and (min-width: 800px) {
+  .content {
+    width: 60%;
+  }
+}
+#about-me p {
+  text-align: justify;
+  padding: 0px 10px;
+}
+header a{
+  margin: 0px 20px; 
+  border:3px solid #24439d;
+  width: 100px;
+  text-align: center;
+  background-color: #b6e0ed }
+img{
+  max-height: 200px;
+  margin: 10px 20px;
+  /* cecha css3 */
+  border-radius: 50%;
+}
+.avatar{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.avatar h1{
+  max-width: 200px;
+}
+.post{
+  width: 285px;
+  min-height: 250px;
+  margin: 10px;
+  padding: 0px 20px;
+  border:3px solid #24439d;
+  background-color: #e2f9ff;
+}
+.feed{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+header a h3{
+  margin: 15px;
+}
+iframe {
+  width: 280px;
+  background-color: black;
+}
+header a:hover {
+  transform: scale(1.1);
+}
+.feed > article:first-child {
+  /* background-color: #bfe8f5; */
+  border: 3px solid #44a9da;
+}
+input[type="submit"] {
+  background-color: lightblue;
+  border-radius: 5px;
+}
+article {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+/* SMASH - użycie gradientu */
+#repos h3 {
+  background-image: linear-gradient(to right, #d9f6ff, #fff);
+}
+
+#request,#errors {
+  margin: 20px;
+}
+
+.none {
+  display: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form {
+  margin-right:50px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  margin: 20px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.even {
+  background-color: #dddddd;
+}
+
+td:last-child {
+  background-color: red;
+}
+tr:last-child {
+  background-color: green;
+}
+tr:last-child td:last-child {
+  display: none;
+}
