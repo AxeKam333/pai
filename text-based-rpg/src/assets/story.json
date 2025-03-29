@@ -26,15 +26,14 @@
           "type": "item",
           "actions": {
             "push": {
-              "text": "Naciskasz przycisk",
+              "next": "biblioteka",
               "state": {
-                "drzwi": "opened"
+                "drzwi": "opened",
+                "okno": "opened"
               }
-            },
-            "": {
-              "text": "Przycisk znajduje się tam gdzie zawsze, jak gdyby nigdy nic."
             }
-          }
+          },
+          "text":"Wgapiasz się w przycisk."
         },
         "drzwi": {
           "type": "if",
@@ -42,16 +41,13 @@
             "drzwi": "closed"
           },
           "next_if_true": "drzwi_zamkniete",
-          "next_if_false": "drzwi_otwarte"
+          "next_if_false": "drzwi_otwarte",
+          "text":"Podchodzisz do drzwi."
         },
         "drzwi_zamkniete": {
           "type": "object",
           "text": "Próbujesz otworzyć, ale drzwi są zamknięte.",
-          "actions": {
-            "": {
-              "text": "Nic się nie dzieje."
-            }
-          }
+          "next":{"":"biblioteka"}
         },
         "drzwi_otwarte": {
           "type": "object",
