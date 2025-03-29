@@ -137,10 +137,20 @@ article {
   display: none;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form {
+  margin-right:50px;
+}
+
 table {
   border-collapse: collapse;
-  width: 100%;
-  margin: 25px;
+  width: 70%;
+  margin: 20px;
 }
 
 td, th {
@@ -149,9 +159,10 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even) {
+.even {
   background-color: #dddddd;
 }
+
 td:last-child {
   background-color: red;
 }

@@ -20,7 +20,7 @@ myform.addEventListener("submit", function(event){
     let reqout = document.getElementById("request");
     if (errors.length>0){
         console.log("Errors: ",errors);
-        errout.innerHTML = errors; 
+        errout.innerHTML = "Errors: "+ errors.map((e)=>"uzupelnij "+e+" ")   ; 
         reqout.classList.add("none");
         errout.classList.add("danger");
         errout.classList.remove("none");
@@ -63,23 +63,79 @@ function validate (input_name) {
     return true;
 }
 function editing (elem) {
-    var input = document.getElementById(elem);
+    const input = document.getElementById(elem);
     input.classList.remove("danger");
-    var span = document.querySelector("span."+elem);
+    const span = document.querySelector("span."+elem);
     span.classList.remove("danger");
 }
 
-var table = document.getElementById("table");
+function refreshTableOnClick(){
+    const table = document.getElementById("table");
 if (table != null) {
-    for (var i = 0; i < table.rows.length; i++) {
-        for (var j = 0; j < table.rows[i].cells.length; j++)
+    for (var i = 1; i < table.rows.length -1; i++) {
+        for (var j = 0; j < table.rows[i].cells.length-1; j++)
         table.rows[i].cells[j].onclick = function () {
-            handleClick(this);
+            handleEdit(this);
             console.log(this);
         };
+        table.rows[i].cells[table.rows[i].cells.length -1].onclick = function () {
+            handleDelete(this);
+            console.log("DELETE",this);
+        };
+    }
+    table.rows[table.rows.length-1].cells[0].onclick = function () {
+        handleAdd(this);
+    }
+    table.rows[table.rows.length-1].cells[1].onclick = function () {
+        handleAdd(this);
     }
 }
-
-function handleClick(tableCell) {
-    alert(tableCell.innerHTML);
 }
+
+function refreshRowColors() {
+    const rows = document.querySelectorAll("#table tbody tr");
+    console.log(rows);
+    
+    rows.forEach((row, index) => {
+        row.classList.remove("odd", "even");
+        row.classList.add(index % 2 === 1 ? "even" : "odd");
+    });
+}
+
+function handleEdit(tableCell) {
+    // alert(tableCell.parentElement.innerHTML);
+    // tableCell.innerHTML = '<textarea class="opis">'+tableCell.innerHTML+'</textarea>'
+    // tableCell.
+    const row = tableCell.parentElement;
+    if (!row.classList.contains("edit")){
+        row.classList.add("edit");
+        row.cells[0].setAttribute("contenteditable","true");
+        row.cells[1].setAttribute("contenteditable","true");
+        row.cells[2].innerHTML = 'save';
+    }
+}
+function handleDelete(tableCell) {
+    const row = tableCell.parentElement;
+    if(row.classList.contains("edit")){
+        row.cells[0].setAttribute("contenteditable","false");
+        row.cells[1].setAttribute("contenteditable","false");
+        row.cells[2].innerHTML = 'del';
+
+        row.classList.remove("edit");
+        refreshRowColors();
+
+    } else {
+        row.remove();
+        refreshRowColors();
+    }
+}
+function handleAdd(tableCell) {
+    const table = document.getElementById("table");
+    const newRow = table.insertRow(1);
+    newRow.innerHTML = '<td contenteditable="true"></td><td contenteditable="true"></td><td>save</td>';
+    newRow.classList.add("edit");
+    refreshRowColors();
+    refreshTableOnClick();
+}
+
+refreshTableOnClick()
