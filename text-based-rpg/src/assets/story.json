@@ -19,7 +19,8 @@
           },
           "text": "Budzisz sie w bibliotece politechniki poznanskiej. miałeś długi dzień, ale pora się zmywać. wstajesz, z planem udania się do domu.",
           "items": {
-            "przycisk": "przycisk"
+            "przycisk": "przycisk",
+            "monopoly":"monopoly"
           }
         },
         "przycisk": {
@@ -57,6 +58,31 @@
         "koniec": {
           "type": "narrator",
           "text": "Gratulacje przejścia mojej gry!"
+        },
+        "monopoly":{
+          "type": "random",
+          "actions": {
+            "": {
+              "next":"biblioteka",
+              "next_random": ["rzut","rzut","rzut","rzut_fail"],
+              "state": {}
+            }
+          },
+          "text":"Patrzysz na rozłożone na stole monopoly. Nigdzie dookoła nie ma nikogo, gracze porzucili rozgrywkę. Wpadasz na pomysł żeby rzucić kostkami do gry."
+        },
+        "rzut":{
+          "type":"narrator",
+          "next":{"":"biblioteka"},
+          "text":"Rzucasz kostkami. Wypadają jakieś dwie losowe liczby. Czego ty się w sumie spodziewałeś? Przesuwasz jeden z pionków do przodu."
+        },
+        "rzut_fail":{
+          "type":"narrator",
+          "next":{"":"monopoly_end"},
+          "text":"Wypadają dwie jedynki."
+        },
+        "monopoly_end":{
+          "type": "narrator",
+          "text": "Nagle czujesz mrowienie na całym ciele... i zaczynasz się zmniejszać! Kiedy proces się kończy, okazuje się, że jesteś na planszy monopoly. Postanawiasz zamieszkać z innymi pionkami w domkach monopoly i tak wiedziesz swoje proste życie długo i szczęśliwie :)"
         }
       }
     }

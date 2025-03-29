@@ -4,9 +4,10 @@ import json from "./assets/story.json";
 // import StoryNode from './types/Game'
 
 type Action = {
-  next: string,
-  state: Record<string,string>
-}
+  next: string;
+  state: Record<string, string>;
+  next_random?: Array<string>;
+};
 
 type StoryNode = {
   type: string;
@@ -49,7 +50,7 @@ function App() {
 
   function changeNode(nodeName: string) {
     console.log(state);
-    
+
     // TODO implement going back
     // if(nodeName=="back"){
     //   setState((previousState) => {
@@ -79,7 +80,7 @@ function App() {
   function resolveConditionalNode() {
     if (!node.if_state) {
       alert("Error");
-      return
+      return;
     }
 
     const conditionMet = Object.entries(node.if_state).every(
@@ -88,20 +89,29 @@ function App() {
     changeNode(conditionMet ? node.next_if_true! : node.next_if_false!);
   }
 
-  function actionTriggered (a:Action) {
+  function actionTriggered(a: Action) {
     setState((previousState) => {
-      let nextState = previousState.storyState
+
+      console.log("a",a);
+      
+      let nextNode = a.next;
+      if(a.next_random){
+        nextNode = a.next_random[Math.floor(Math.random() * a.next_random.length)]
+      }
+      console.log("nextNode",nextNode);
+      
+
+      let nextState = previousState.storyState;
       Object.entries(a.state).forEach(([key, value]) => {
-        nextState[key] = value
+        nextState[key] = value;
       });
 
       return {
         ...previousState,
-        currentNode: a.next,
+        currentNode: nextNode,
         storyState: nextState,
       };
     });
-    changeNode(a.next);
   }
 
   function handleInput(e: any) {
@@ -123,12 +133,18 @@ function App() {
       if (node.items[input]) {
         changeNode(node.items[input]);
       }
-    } 
+    }
 
     // handle item actions
-    if (node.actions){
-      if (node.actions[input]){
+    if (node.actions) {
+      if (node.actions[input]) {
         actionTriggered(node.actions[input]);
+      }
+    }
+
+    if (node.type == "random") {
+      if (input == "next" || input == "") {
+
       }
     }
 
