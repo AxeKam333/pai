@@ -1,0 +1,68 @@
+[
+  {
+    "story": {
+      "name": "Moja pierwsza historia",
+      "start": "init",
+      "state": {
+        "drzwi": "closed"
+      },
+      "objects": {
+        "init": {
+          "type": "narrator",
+          "next": { "": "biblioteka" },
+          "text": "Witaj w mojej grze!"
+        },
+        "biblioteka": {
+          "type": "room",
+          "next": {
+            "drzwi": "drzwi"
+          },
+          "text": "Budzisz sie w bibliotece politechniki poznanskiej. miałeś długi dzień, ale pora się zmywać. wstajesz, z planem udania się do domu.",
+          "items": {
+            "przycisk": "przycisk"
+          }
+        },
+        "przycisk": {
+          "type": "item",
+          "actions": {
+            "push": {
+              "text": "Naciskasz przycisk",
+              "state": {
+                "drzwi": "opened"
+              }
+            },
+            "": {
+              "text": "Przycisk znajduje się tam gdzie zawsze, jak gdyby nigdy nic."
+            }
+          }
+        },
+        "drzwi": {
+          "type": "if",
+          "if_state": {
+            "drzwi": "closed"
+          },
+          "next_if_true": "drzwi_zamkniete",
+          "next_if_false": "drzwi_otwarte"
+        },
+        "drzwi_zamkniete": {
+          "type": "object",
+          "text": "Próbujesz otworzyć, ale drzwi są zamknięte.",
+          "actions": {
+            "": {
+              "text": "Nic się nie dzieje."
+            }
+          }
+        },
+        "drzwi_otwarte": {
+          "type": "object",
+          "text": "Udaje ci się przejsc przez drzwi!",
+          "next": { "": "koniec" }
+        },
+        "koniec": {
+          "type": "narrator",
+          "text": "Gratulacje przejścia mojej gry!"
+        }
+      }
+    }
+  }
+]
